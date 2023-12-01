@@ -25,4 +25,14 @@ class BoardPositionTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("입력 형식이 잘못되었습니다.");
     }
+
+    @Test
+    @DisplayName("입력_범위_오류_테스트")
+    void validateNumber() {
+        String input = "(10, 20)";
+
+        Assertions.assertThatThrownBy(() -> BoardPosition.boardPosition(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력된 좌표의 범위가 올바르지 않습니다.");
+    }
 }
