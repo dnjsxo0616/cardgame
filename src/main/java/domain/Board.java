@@ -31,4 +31,8 @@ public class Board {
     public boolean checkEqualNumber(int[] input1, int[] input2) {
         return cardBoard[input1[0]][input1[1]] == cardBoard[input2[0]][input2[1]];
     }
+
+    public boolean checkEmptySpace(int[] input1, int[] input2) {
+        return cardBoard[input1[0]][input1[1]] == 0 || cardBoard[input2[0]][input2[1]] == 0;
+    }
 }
