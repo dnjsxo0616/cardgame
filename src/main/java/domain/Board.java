@@ -49,4 +49,24 @@ public class Board {
 
         return true;
     }
+
+    public boolean checkPairs() {
+        HashMap<Integer, Integer> countMap = new HashMap<>();
+
+        for (int i = 0; i < cardBoard.length; i++) {
+            for (int j = 0; j < cardBoard[i].length; j++) {
+                if (cardBoard[i][j] != 0) {
+                    countMap.put(cardBoard[i][j], countMap.getOrDefault(cardBoard[i][j], 0) + 1);
+                }
+            }
+        }
+
+        for (int count : countMap.values()) {
+            if (count % 2 == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
