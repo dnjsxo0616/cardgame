@@ -22,4 +22,9 @@ public class Board {
         }
         return count;
     }
+
+    public void removeNumber(int[] input1, int[] input2) {
+        cardBoard[input1[0]][input1[1]] = 0;
+        cardBoard[input2[0]][input2[1]] = 0;
+    }
 }
