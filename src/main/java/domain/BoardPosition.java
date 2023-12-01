@@ -6,6 +6,15 @@ import java.util.regex.Pattern;
 public class BoardPosition {
     private static final int MIN_POSITION = 0;
     private static final String INPUT_FORM = "\\(\\d+,\\s*\\d+\\)";
+
+    public static int[] boardPosition(String input) {
+        validateForm(input);
+        String[] strPosition = Parse.parseComma(input);
+        int[] intPosition = Parse.covertToInt(strPosition);
+        validateNumber(intPosition);
+        return intPosition;
+    }
+
     private static void validateForm(String input) {
         Pattern pattern = Pattern.compile(INPUT_FORM);
         Matcher matcher = pattern.matcher(input);
