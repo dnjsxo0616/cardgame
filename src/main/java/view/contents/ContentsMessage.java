@@ -1,8 +1,8 @@
-package view.Contents;
+package view.contents;
 
 public enum ContentsMessage {
     INPUT_PLAY_MESSAGE("<시도 %d, 남은 카드: %d> 좌표를 두 번 입력하세요."),
-    INPUT_FRIST("입력 %d? "),
+    INPUT_MESSAGE("입력 %d? "),
     FINISH_MESSAGE("축하합니다~ 모든 카드를 맞췄습니다!!"),
     CLOSE_MESSAGE("게임을 종료합니다.");
 
