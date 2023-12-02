@@ -3,10 +3,7 @@ package domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,6 +24,22 @@ class ShuffleDeckTest {
 
         for(int i=1; i<=8; i++) {
             assertEquals(3, Collections.frequency(deck, i));
+        }
+    }
+
+    @Test
+    @DisplayName("모든_카드_짝_테스트")
+    void createPairsDeck() {
+        List<Integer> deck = ShuffleDeck.createShuffleDeck();
+        List<Integer> pairsDeck = ShuffleDeck.createPairsDeck(deck);
+        Map<Integer, Integer> countMap = new HashMap<>();
+
+        for(int number : pairsDeck) {
+            countMap.put(number, countMap.getOrDefault(number, 0) +1);
+        }
+
+        for(int count : countMap.values()) {
+            assertEquals(0, count%2);
         }
     }
 }
