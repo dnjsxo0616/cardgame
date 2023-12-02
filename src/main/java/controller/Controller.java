@@ -2,16 +2,24 @@ package controller;
 
 import domain.Board;
 import domain.BoardPosition;
+import domain.ShuffleDeck;
 import view.contents.ContentsMessage;
 import view.input.InputView;
 import view.output.OutputView;
 
+import java.util.List;
+
 public class Controller {
     public void play() {
+        List<Integer> deck = ShuffleDeck.createShuffleDeck();
+        List<Integer> pairsDeck = ShuffleDeck.createPairsDeck(deck);
+        System.out.println(pairsDeck);
+
         Board board = new Board();
+       OutputView.printBoard(board.getCardBoard());
 
         int roundCount = 0;
-        while (!(board.checkBoard() || board.checkPairs())) {
+        while (!board.checkBoard()) {
             roundCount++;
             OutputView.printNewLine();
             OutputView.printBackOfBoard(board.getCardBoard());
