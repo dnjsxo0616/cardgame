@@ -24,10 +24,10 @@ public class ShuffleDeck {
         int count = 0;
 
         for (int number : deck) {
-            count++;
             pairsDeck.add(number);
             pairsDeck.add(number);
-            if (count > 18) {
+            count += 2;
+            if (count == 18) {
                 break;
             }
         }
