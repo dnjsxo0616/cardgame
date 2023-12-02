@@ -18,4 +18,20 @@ public class ShuffleDeck {
         Collections.shuffle(deck);
         return deck;
     }
+
+    public static List<Integer> createPairsDeck(List<Integer> deck) {
+        List<Integer> pairsDeck = new ArrayList<>();
+        int count = 0;
+
+        for (int number : deck) {
+            count++;
+            pairsDeck.add(number);
+            pairsDeck.add(number);
+            if (count > 18) {
+                break;
+            }
+        }
+        Collections.shuffle(pairsDeck);
+        return pairsDeck;
+    }
 }
