@@ -8,6 +8,7 @@ public class Name {
     public Name(final String name) {
         validateEmpty(name);
         validateLength(name);
+        validateWhiteSpace(name);
         this.name = name;
     }
 
@@ -21,6 +22,16 @@ public class Name {
         if (input.isEmpty()) {
             throw new IllegalArgumentException("이름을 입력해주세요.");
         }
+    }
+
+    private static void validateWhiteSpace(final String input) {
+        if (checkWhiteSpace(input)) {
+            throw new IllegalArgumentException("공백이 포함되면 안됩니다.");
+        }
+    }
+
+    private static boolean checkWhiteSpace(final String input) {
+        return input.chars().anyMatch(Character::isWhitespace);
     }
 
     public String getName() {
