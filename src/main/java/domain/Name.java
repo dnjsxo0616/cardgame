@@ -12,6 +12,10 @@ public class Name {
         this.name = name;
     }
 
+    public static Name createName(final String name) {
+        return new Name(name);
+    }
+
     private static void validateLength(final String input) {
         if (input.length() > NAME_MAX_LENGTH) {
             throw new IllegalArgumentException("이름은 최대 4자입니다.");
