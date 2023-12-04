@@ -18,33 +18,26 @@ public class Players {
     private List<Player> createPlayers(final List<String> playerNames) {
         List<Player> players = new ArrayList<>();
 
-        for(String name : playerNames) {
+        for (String name : playerNames) {
             players.add(Player.createPlayer(name));
         }
         return players;
     }
 
-    public Name winnerPlayer() {
-        Player winnerPlayer = players.get(0);
+    public List<Name> winnerPlayer() {
+        int maxScore = players.get(0).getScore();
+        List<Name> winnerNames = new ArrayList<>();
 
         for (Player player : players) {
-            winnerPlayer = compareScore(winnerPlayer, player);
+            int playerScore = player.getScore();
+            if (playerScore > maxScore) {
+                maxScore = playerScore;
+                winnerNames.clear();
+                winnerNames.add(player.getName());
+            } else if (playerScore == maxScore) {
+                winnerNames.add(player.getName());
+            }
         }
-
-        if (winnerPlayer == null) {
-            return null;
-        } else {
-            return winnerPlayer.getName();
-        }
-    }
-
-    private Player compareScore(Player player1, Player player2) {
-        if (player1.getScore() > player2.getScore()) {
-            return player1;
-        } else if (player1.getScore() < player2.getScore()) {
-            return player2;
-        } else {
-            return null;
-        }
+        return winnerNames;
     }
 }
