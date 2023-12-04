@@ -24,6 +24,18 @@ public class Player {
         score += multiplicationPlusNumber(count);
     }
 
+    public Name scoreComparison(Player player) {
+        if (this.score > player.score) {
+            return this.name;
+        }
+
+        if (this.score < player.score) {
+            return player.name;
+        }
+
+        return null;
+    }
+
     public Name getName() {
         return name;
     }
