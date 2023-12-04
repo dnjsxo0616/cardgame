@@ -1,6 +1,5 @@
 package view.output;
 
-import domain.Name;
 import domain.Player;
 import domain.Players;
 import view.contents.ContentsMessage;
@@ -32,7 +31,7 @@ public class OutputView {
         for (int i = 0; i < cardBoard.length; i++) {
             for (int j = 0; j < cardBoard[i].length; j++) {
                 if (cardBoard[i][j] == 0) {
-                    System.out.print(" ");
+                    System.out.print("O");
                 } else {
                     System.out.print("X");
                 }
@@ -54,6 +53,7 @@ public class OutputView {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     // 확인용
@@ -67,24 +67,25 @@ public class OutputView {
     }
 
     public static void printWinnerPlayer(Players players) {
-        List<Name> winnerPlayerName = players.winnerPlayer();
-        if(winnerPlayerName.size() == 1) {
-            System.out.println("최종 우승자 : " + winnerPlayerName.get(0));
+        List<String> winnerPlayerName = players.winnerPlayer();
+        if (winnerPlayerName.size() == 1) {
+            System.out.printf((ContentsMessage.WINNER_MESSAGE.getMessage()) + "%n", winnerPlayerName.get(0));
         } else {
-            System.out.print("공동 우승 : ");
-            for(int i=0; i<winnerPlayerName.size(); i++) {
-                System.out.print(winnerPlayerName.get(i));
-                if(i < winnerPlayerName.size() - 1) {
-                    System.out.print(", ");
+            StringBuilder winners = new StringBuilder(ContentsMessage.WINNERS_MESSAGE.getMessage());
+            for (int i = 0; i < winnerPlayerName.size(); i++) {
+                winners.append(winnerPlayerName.get(i));
+                if (i < winnerPlayerName.size() - 1) {
+                    winners.append(", ");
                 }
             }
+            System.out.println(winners);
         }
     }
 
     public static void printPlayerScore(Players players) {
         for (int i = 0; i < players.getPlayersSize(); i++) {
-            Player player = players.getPlayers(i);
-            System.out.println(player.getName().toString() + "의 점수는 " + player.getScore());
+            Player player = players.getPlayer(i);
+            System.out.printf((ContentsMessage.PLAYER_SCORE_MESSAGE.getMessage()) + "%n", player.getName().toString(), player.getScore());
         }
     }
 }
