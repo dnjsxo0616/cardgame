@@ -34,4 +34,19 @@ class PlayersTest {
 
         assertEquals(List.of("Alex"), winnerNames);
     }
+
+    @Test
+    @DisplayName("공동_우승자_찾기_테스트")
+    void winnerPlayers() {
+        String input = "Alex, Han, Kim";
+        Players players = Players.createNewPlayers(input);
+
+        players.getPlayers(0).plusScore(3);
+        players.getPlayers(1).plusScore(3);
+        players.getPlayers(2).plusScore(1);
+
+        List<String> winnerNames = players.winnerPlayer();
+
+        assertEquals(Arrays.asList("Alex", "Han"), winnerNames);
+    }
 }
