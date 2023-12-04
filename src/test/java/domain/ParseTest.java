@@ -4,7 +4,11 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParseTest {
 
@@ -34,5 +38,14 @@ class ParseTest {
         Assertions.assertThatThrownBy(() -> Parse.covertToInt(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("입력된 좌표를 정수로 변환할 수 없습니다.");
+    }
+
+    @Test
+    @DisplayName("이름_파싱_테스트")
+    void parseName() {
+        String input = "홍길동, 김바다";
+        List<String> expected = Arrays.asList("홍길동", "김바다");
+
+        assertEquals(expected, Parse.parseName(input));
     }
 }
