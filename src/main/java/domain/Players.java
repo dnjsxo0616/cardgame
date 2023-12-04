@@ -11,6 +11,10 @@ public class Players {
         this.players = createPlayers(playerNames);
     }
 
+    public static Players createNewPlayers(final String input) {
+        return new Players(input);
+    }
+
     private List<Player> createPlayers(final List<String> playerNames) {
         List<Player> players = new ArrayList<>();
 
