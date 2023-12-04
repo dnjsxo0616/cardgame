@@ -15,9 +15,9 @@ class PlayersTest {
         String input = "Alex, Han, Kim";
         Players players = Players.createNewPlayers(input);
 
-        assertEquals("Alex", players.getPlayers(0).getName().toString());
-        assertEquals("Han", players.getPlayers(1).getName().toString());
-        assertEquals("Kim", players.getPlayers(2).getName().toString());
+        assertEquals("Alex", players.getPlayer(0).getName().toString());
+        assertEquals("Han", players.getPlayer(1).getName().toString());
+        assertEquals("Kim", players.getPlayer(2).getName().toString());
     }
 
     @Test
@@ -26,9 +26,9 @@ class PlayersTest {
         String input = "Alex, Han, Kim";
         Players players = Players.createNewPlayers(input);
 
-        players.getPlayers(0).plusScore(3);
-        players.getPlayers(1).plusScore(2);
-        players.getPlayers(2).plusScore(1);
+        players.getPlayer(0).plusScore(3);
+        players.getPlayer(1).plusScore(2);
+        players.getPlayer(2).plusScore(1);
 
         List<String> winnerNames = players.winnerPlayer();
 
@@ -41,9 +41,9 @@ class PlayersTest {
         String input = "Alex, Han, Kim";
         Players players = Players.createNewPlayers(input);
 
-        players.getPlayers(0).plusScore(3);
-        players.getPlayers(1).plusScore(3);
-        players.getPlayers(2).plusScore(1);
+        players.getPlayer(0).plusScore(3);
+        players.getPlayer(1).plusScore(3);
+        players.getPlayer(2).plusScore(1);
 
         List<String> winnerNames = players.winnerPlayer();
 
