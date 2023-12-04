@@ -57,14 +57,14 @@ public class OutputView {
     }
 
     // 확인용
-    public static void printBoard(int[][] cardBoard) {
-        for (int i = 0; i < cardBoard.length; i++) {
-            for (int j = 0; j < cardBoard[i].length; j++) {
-                System.out.print(cardBoard[i][j]);
-            }
-            System.out.println();
-        }
-    }
+//    public static void printBoard(int[][] cardBoard) {
+//        for (int i = 0; i < cardBoard.length; i++) {
+//            for (int j = 0; j < cardBoard[i].length; j++) {
+//                System.out.print(cardBoard[i][j]);
+//            }
+//            System.out.println();
+//        }
+//    }
 
     public static void printWinnerPlayer(Players players) {
         List<String> winnerPlayerName = players.winnerPlayer();
