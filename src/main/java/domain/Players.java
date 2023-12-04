@@ -20,6 +20,20 @@ public class Players {
         return players;
     }
 
+    public Name winnerPlayer() {
+        Player winnerPlayer = players.get(0);
+
+        for (Player player : players) {
+            winnerPlayer = compareScore(winnerPlayer, player);
+        }
+
+        if (winnerPlayer == null) {
+            return null;
+        } else {
+            return winnerPlayer.getName();
+        }
+    }
+
     private Player compareScore(Player player1, Player player2) {
         if (player1.getScore() > player2.getScore()) {
             return player1;
