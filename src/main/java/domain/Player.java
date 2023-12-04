@@ -12,6 +12,10 @@ public class Player {
         this.score = START_NUMBER;
     }
 
+    public static Player createPlayer(final String name) {
+        return new Player(name);
+    }
+
     private int multiplicationPlusNumber(int count) {
         return PLUS_NUMBER * count;
     }
