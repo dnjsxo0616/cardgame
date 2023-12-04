@@ -24,20 +24,28 @@ public class Players {
         return players;
     }
 
-    public List<Name> winnerPlayer() {
+    public List<String> winnerPlayer() {
         int maxScore = players.get(0).getScore();
-        List<Name> winnerNames = new ArrayList<>();
+        List<String> winnerNames = new ArrayList<>();
 
         for (Player player : players) {
             int playerScore = player.getScore();
             if (playerScore > maxScore) {
                 maxScore = playerScore;
                 winnerNames.clear();
-                winnerNames.add(player.getName());
+                winnerNames.add(player.getName().toString());
             } else if (playerScore == maxScore) {
-                winnerNames.add(player.getName());
+                winnerNames.add(player.getName().toString());
             }
         }
         return winnerNames;
+    }
+
+    public Player getPlayer(int index) {
+        return players.get(index);
+    }
+
+    public int getPlayersSize() {
+        return players.size();
     }
 }
