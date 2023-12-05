@@ -27,6 +27,11 @@ public class OutputView {
         System.out.println(message);
     }
 
+    public static void printWhoPlayer(ContentsMessage contentsMessage, String playerName) {
+        System.out.printf(contentsMessage.getMessage(), playerName);
+        System.out.println();
+    }
+
     public static void printBackOfBoard(int[][] cardBoard) {
         for (int i = 0; i < cardBoard.length; i++) {
             for (int j = 0; j < cardBoard[i].length; j++) {
