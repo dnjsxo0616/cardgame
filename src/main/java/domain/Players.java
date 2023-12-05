@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Players {
     private final List<Player> players;
@@ -16,12 +17,9 @@ public class Players {
     }
 
     private List<Player> createPlayers(final List<String> playerNames) {
-        List<Player> players = new ArrayList<>();
-
-        for (String name : playerNames) {
-            players.add(Player.createPlayer(name));
-        }
-        return players;
+        return playerNames.stream()
+                .map(Player::createPlayer)
+                .collect(Collectors.toList());
     }
 
     public List<String> winnerPlayer() {
