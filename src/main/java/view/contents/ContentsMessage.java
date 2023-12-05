@@ -8,7 +8,8 @@ public enum ContentsMessage {
     PLAYERS_MESSAGE("1P, 2P의 플레이어의 이름을 입력하세요. "),
     WINNER_MESSAGE("최종 우승자 : %s"),
     WINNERS_MESSAGE("공동 우승 : "),
-    PLAYER_SCORE_MESSAGE("%s의 점수는 %d");
+    PLAYER_SCORE_MESSAGE("%s의 점수는 %d"),
+    WHO_PLAYER_MESSAGE("현재 플레이어 : %s");
 
     private final String message;
 
