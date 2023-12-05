@@ -9,7 +9,9 @@ public enum ContentsMessage {
     WINNER_MESSAGE("최종 우승자 : %s"),
     WINNERS_MESSAGE("공동 우승 : "),
     PLAYER_SCORE_MESSAGE("%s의 점수는 %d"),
-    WHO_PLAYER_MESSAGE("현재 플레이어 : %s");
+    WHO_PLAYER_MESSAGE("현재 플레이어 : %s"),
+    CURRENT_BOARD("현재 카드"),
+    SELECT_BOARD("선택한 카드");
 
     private final String message;
 
