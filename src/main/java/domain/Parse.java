@@ -1,7 +1,9 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Parse {
     private static final String COMMA = ",";
@@ -21,11 +23,8 @@ public class Parse {
     }
 
     public static List<String> parseName(String input) {
-        String[] strNames = input.split(COMMA);
-        List<String> names = new ArrayList<>();
-        for (String name : strNames) {
-            names.add(name.trim());
-        }
-        return names;
+        return Arrays.stream(input.split(COMMA))
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 }
